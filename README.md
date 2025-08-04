@@ -1,4 +1,4 @@
-# Demo: Automating Recommendations from Azure Arc with a Disaster Recovery Agent (full-code approach)
+# Demo: Automating Recommendations from Azure Arc with an AI Agent (full-code approach)
 
 Costa Rica
 
@@ -10,7 +10,7 @@ Last updated: 2025-07-30
 
 -----------------------------
 
-> This demo is intended to demonstrate how to automate the entire lifecycle of Disaster Recovery (DR) recommendations from Azure Arc by introducing an AI-driven agent that not only ingests and processes recommendations but also:
+> This demo is intended to demonstrate how to automate the recommendations from Azure Arc by introducing an AI-driven agent that not only ingests and processes recommendations but also:
 > - Classify & priority-rank each recommendation
 > - Summarize actionable next steps in natural language
 > - Decide `auto-execute` vs `human-review` paths
