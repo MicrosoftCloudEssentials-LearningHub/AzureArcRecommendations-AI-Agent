@@ -15,14 +15,14 @@ Last updated: 2025-07-30
 > - Summarize actionable next steps in natural language
 > - Decide `auto-execute` vs `human-review` paths
 
+| **Category**                   | **Components**| **Purpose** |
+| ------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| **Core Components**            | **Azure Arc Advisory API**| Source of recommendations (DR, security, performance, compliance) for on-prem and hybrid assets. |
+| **Data Engineering Pipeline**  | - **Azure Functions**: Fetch raw recommendations and call AI for enrichment.<br>- **Azure Data Factory (ADF)**: Orchestrate data flows and conditional logic.<br>- **Azure SQL / Data Lake**: Store raw and enriched recommendations for audit and reporting. | Handles ingestion, orchestration, and storage of all recommendations.                            |
+| **AI Layer**                   | **Azure OpenAI or AI Foundry**: Classifies severity (High/Medium/Low), summarizes actions in natural language, prioritizes recommendations, and suggests auto-execution vs manual review based on risk.| Adds intelligence for decision-making, prioritization, and human-readable summaries.             |
+| **Automation & Orchestration** | **Logic Apps / Azure Automation**: Execute actions (e.g., DR failover, patching, security fixes) or send Teams notifications for approval. | Automates execution of safe actions and integrates approval workflows for high-risk changes.  |
+| **Monitoring & Governance**    | - **Azure Monitor + Log Analytics**: Track pipeline health, AI decisions, and execution status.<br>- **Power BI Dashboards**: Visualize trends, compliance, and automation success rates. | Provides observability, governance, and reporting for the entire solution.                       |
 
-| **Category**                | **Components**                                                                                     | **Purpose**                                                                                              |
-|-----------------------------|---------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
-| **Core Components**         | **Azure Arc Advisory API**                                                                       | Source of DR recommendations for on-prem and hybrid assets.                                             |
-| **Data Engineering Pipeline**| - **Azure Functions**: Fetch raw recommendations and call AI for enrichment.<br>- **Azure Data Factory (ADF)**: Orchestrate data flows and conditional logic.<br>- **Azure SQL / Data Lake**: Store raw and enriched recommendations for audit and reporting. | Handles ingestion, orchestration, and storage of DR recommendations.                                    |
-| **AI Layer**                | - **Azure OpenAI or AI Foundry**: Classifies severity (High/Medium/Low), summarizes actions in natural language, and suggests auto-execution vs manual review based on risk. | Adds intelligence for prioritization, summarization, and decision-making.                               |
-| **Automation & Orchestration**| - **Logic Apps / Azure Automation**: Execute DR actions (ASR failover, backups) or send Teams notifications for approval. | Automates execution of DR actions and integrates approval workflows.                                    |
-| **Monitoring & Governance** | - **Azure Monitor + Log Analytics**: Track pipeline health, AI decisions, and DR execution status.<br>- **Power BI Dashboards**: Visualize trends, compliance, and automation success rates. | Provides observability, governance, and reporting for the entire solution.                              |
 
 
 <!-- START BADGE -->
