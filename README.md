@@ -24,8 +24,7 @@ Last updated: 2025-07-30
 >   - Decide `auto-execute` vs `human-review` paths
 >  This is `just a guide`. It is not an official solution. For official guidance, support, or more detailed information. Please refer [RAG with Zero-Trust – Architecture Reference to Microsoft's official documentation](https://github.com/Azure/GPT-RAG) or contact Microsoft directly: [Microsoft Sales and Support](https://support.microsoft.com/contactus?ContactUsExperienceEntryPointAssetId=S.HP.SMC-HOME)
 
-
-| **Category**                   | **Components**                                                                                                                                                                                                                                                       | **Purpose**                                                                                                      |
+| **Category**                   | **Components**| **Purpose**                                                                                                      |
 |--------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
 | **Core Components**            | - **Azure Arc API**<br>- **Resource Group**<br>- **Subscription**| - Source of recommendations (DR, security, performance, compliance) for on-prem and hybrid assets.<br>- Groups all resources under a single RG and subscription scope. |
 | **Data Engineering Pipeline**  | - **Function App**<br>  *Every Function App requires a General-Purpose v2 Storage Account for triggers, state, and logging.*<br>- **App Service Plan** (Consumption/Premium SKU)<br>  *The App Service Plan can be serverless (Consumption) or a dedicated tier (Premium/Dedicated).*<br>- **Storage Account** (General Purpose v2 for Functions runtime) | Hosts and scales your ingestion/enrichment logic; fetches recommendations and sends them to AI for processing.   |
@@ -33,10 +32,16 @@ Last updated: 2025-07-30
 | **Automation & Orchestration** | **Logic Apps**| Executes safe actions (DR failover, patching, SQL fixes) or sends Teams/Email approvals for high-risk items.      |
 | **Monitoring & Governance**    | - **Azure Monitor + Log Analytics Workspace**<br>- **Power BI**| Tracks pipeline health, AI decisions, execution outcomes; visualizes trends, compliance, and automation SLAs.    |
 
-
-
 ## Overview 
 
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/48774cdd-ba27-404c-b7fc-a124fd176e2a" alt="Centered Image" style="border: 2px solid #4CAF50; border-radius: 5px; padding: 5px;"/>
+</div>
+
+<details>
+<summary><b> Workflow details </b> (Click to expand)</summary>
+      
 1. Azure Arc API (Source)
       - Acts as the entry point for all recommendations (DR, security, performance, compliance).
       - Provides raw JSON data about advisories from on-prem and hybrid resources.
@@ -63,6 +68,7 @@ Last updated: 2025-07-30
           - Number of recommendations processed.
           - Auto-executed vs manual approvals.
           - SLA compliance and risk reduction trends.
+</details>
 
 
 <!-- START BADGE -->
